@@ -69,8 +69,13 @@ function totalSaveAndRemainingBalance() {
         alert('You Cant Save Over your Balance');
     }
     else {
-        setValue('saving-amount', saveingAmount);
-        setValue('remaining-balance', remainingBalance);
+        if (isNaN(saveingAmount)) {
+            alert('please give Number Value')
+        }
+        else {
+            setValue('saving-amount', saveingAmount);
+            setValue('remaining-balance', remainingBalance);
+        }
 
     }
 }
