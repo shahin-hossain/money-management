@@ -65,18 +65,20 @@ function totalSaveAndRemainingBalance() {
 
     const balance = getElementFieldValue('balance');
     const remainingBalance = balance - saveingAmount;
-    if (balance < saveingAmount) {
+
+    if (isNaN(saveingAmount)) {
+        alert('Please Give Number Value')
+    }
+    else if (saveingAmount > 100) {
+        alert('Please Over 100% not Allow')
+    }
+    else if (balance < saveingAmount) {
         alert('You Cant Save Over your Balance');
     }
-    else {
-        if (isNaN(saveingAmount)) {
-            alert('please give Number Value')
-        }
-        else {
-            setValue('saving-amount', saveingAmount);
-            setValue('remaining-balance', remainingBalance);
-        }
 
+    else {
+        setValue('saving-amount', saveingAmount);
+        setValue('remaining-balance', remainingBalance);
     }
 }
 
